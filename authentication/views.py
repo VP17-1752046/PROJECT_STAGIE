@@ -6,7 +6,11 @@ from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 def home(request):
-    return render(request, "authentication/index.html")
+    print(request.user)
+    # if :
+    #     return render(request, "basic/index.html")
+    # else : 
+    return render(request, "authentication/signin.html")
 
 def signup(request):
 
@@ -42,7 +46,7 @@ def signin(request):
         if user is not None:
             login(request, user)
             fname = user.first_name
-            return render(request, "authentication/index.html", {'fname': fname})
+            return render(request, "basic/index.html", {'fname': fname})
 
         else:
             messages.error(request, "Bad Credentials!")
