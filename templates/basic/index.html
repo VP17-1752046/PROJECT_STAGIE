@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Focus - Bootstrap Admin Dashboard </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon.png' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
 </head>
 
@@ -18,13 +18,13 @@
     <!--*******************
         Preloader start
     ********************-->
-    <!-- <div id="preloader">
+    <div id="preloader">
         <div class="sk-three-bounce">
             <div class="sk-child sk-bounce1"></div>
             <div class="sk-child sk-bounce2"></div>
             <div class="sk-child sk-bounce3"></div>
         </div>
-    </div> -->
+    </div>
     <!--*******************
         Preloader end
     ********************-->
@@ -39,8 +39,8 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="#" class="brand-logo" >
-                <img class="logo-abbr" src="{% static 'images/logo.png' %} "alt="">
+            <a href="index.html" class="brand-logo">
+                <img class="logo-abbr" src="{% static 'images/logo.png' %}" alt="">
                 <img class="logo-compact" src="{% static 'images/logo-text.png' %}" alt="">
                 <img class="brand-title" src="{% static 'images/logo-text.png' %}" alt="">
             </a>
@@ -141,15 +141,15 @@
                                     <i class="mdi mdi-account"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="" class="dropdown-item">
+                                    <a href="./app-profile.html" class="dropdown-item">
                                         <i class="icon-user"></i>
                                         <span class="ml-2">Profile </span>
                                     </a>
-                                    <a href="" class="dropdown-item">
+                                    <a href="./email-inbox.html" class="dropdown-item">
                                         <i class="icon-envelope-open"></i>
                                         <span class="ml-2">Inbox </span>
                                     </a>
-                                    <a href="" class="dropdown-item">
+                                    <a href="./page-login.html" class="dropdown-item">
                                         <i class="icon-key"></i>
                                         <span class="ml-2">Logout </span>
                                     </a>
@@ -176,8 +176,8 @@
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="">Dashboard 1</a></li>
-                            <li><a href="">Dashboard 2</a></li>
+                            <li><a href="./index.html">Dashboard 1</a></li>
+                            <li><a href="./index2.html">Dashboard 2</a></li>
                         </ul>
                     </li>
 
@@ -185,26 +185,15 @@
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="icon icon-app-store"></i><span class="nav-text">Apps</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="">Profile</a></li>
+                            <li><a href="./app-profile.html">Profile</a></li>
                             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
                                 <ul aria-expanded="false">
-                                    <li><a href="">Compose</a></li>
-                                    <li><a href="">Inbox</a></li>
-                                    <li><a href="">Read</a></li>
+                                    <li><a href="./email-compose.html">Compose</a></li>
+                                    <li><a href="./email-inbox.html">Inbox</a></li>
+                                    <li><a href="./email-read.html">Read</a></li>
                                 </ul>
                             </li>
-                            <li><a href="{% static 'app-calender.html' %}">Calendar</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-chart-bar-33"></i><span class="nav-text">Charts</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="">Flot</a></li>
-                            <li><a href="">Morris</a></li>
-                            <li><a href="">Chartjs</a></li>
-                            <li><a href="">Chartist</a></li>
-                            <li><a href="">Sparkline</a></li>
-                            <li><a href="">Peity</a></li>
+                            <li><a href="./app-calender.html">Calendar</a></li>
                         </ul>
                     </li>
                 </ul>
