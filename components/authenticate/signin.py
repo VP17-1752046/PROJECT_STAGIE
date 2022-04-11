@@ -3,11 +3,6 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.views.decorators.csrf import ensure_csrf_cookie
-from django.views.decorators.csrf import csrf_protect
-
-@ensure_csrf_cookie
-@csrf_protect
 
 def signin(request):
     
