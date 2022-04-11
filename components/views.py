@@ -46,7 +46,7 @@ def signin(request):
         if user is not None:
             login(request, user)
             fname = user.first_name
-            return render(request, "basic/index.html", {'fname': fname})
+            return render(request, "base/index.html", {'fname': fname})
 
         else:
             messages.error(request, "Bad Credentials!")
