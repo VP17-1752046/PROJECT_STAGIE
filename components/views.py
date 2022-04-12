@@ -3,10 +3,11 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.template import RequestContext
 
 # Create your views here.
 def home(request):
-    print(request.user)
+   
     # if :
     #     return render(request, "basic/index.html")
     # else : 
@@ -46,13 +47,11 @@ def signin(request):
         if user is not None:
             login(request, user)
             fname = user.first_name
-            return render(request, "base/index.html", {'fname': fname})
+            return redirect('index')
 
         else:
             messages.error(request, "Bad Credentials!")
-            return redirect('home')
-        
-        return redirect('signup')
+            return redirect('signup')
     return render(request, "authentication/signin.html")
 
 
@@ -61,3 +60,8 @@ def signout(request):
     messages.success(request, "Logged Out Successfully!")
     return redirect('home') 
   
+def mainDashboard(request):
+    if request.user.is_authenticated: 
+        render(request, "base/index.html")
+    else: 
+        render(request, "authentication/signin.html")

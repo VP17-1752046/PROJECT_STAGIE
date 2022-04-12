@@ -10,10 +10,34 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon.png' %}">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
+    <script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
 </head>
+<script type="text/javascript">
 
-<body>
+    var viz;
+
+    function draw() {
+        var config = {
+            container_id: "viz",
+            server_url: "bolt://44.192.111.77:7687",
+            server_user: "neo4j",
+            server_password: "tools-wonder-surveys",
+            labels: {
+                
+            },
+            relationships: {
+                
+            },
+            initial_cypher: "MATCH p=(:Character)-[:INTERACTS]->(:Character) RETURN p LIMIT 50"
+        };
+        
+        viz = new NeoVis.default(config);
+        console.log(viz)
+        viz.render();
+    }
+</script>
+
+<body onload="draw()">
 
     <!--*******************
         Preloader start
@@ -208,35 +232,53 @@
         ***********************************-->
         <div class="content-body">
             <div class="container-fluid">
-                <div class="row page-titles mx-0">
-                    <div class="col-sm-6 p-md-0">
-                        <div class="welcome-text">
-                            <h4>Hi, welcome back!</h4>
-                            <p class="mb-0">Your business dashboard template</p>
+                    <div class="col-lg-12">
+                        <div id="accordion-ten" class="accordion accordion-header-shadow accordion-rounded">
+                            <div class="accordion__item">
+                                <div class="accordion__header collapsed accordion__header--primary" data-toggle="collapse" data-target="#header-shadow_collapseOne">
+                                    <span class="accordion__header--icon"></span>
+                                    <span class="accordion__header--text">Accordion Header One</span>
+                                    <span class="accordion__header--indicator"></span>
+                                </div>
+                                <div id="header-shadow_collapseOne" class="collapse accordion__body show" data-parent="#accordion-ten">
+                                    <div class="accordion__body--text">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion__item">
+                                <div class="accordion__header collapsed accordion__header--success" data-toggle="collapse" data-target="#header-shadow_collapseThree">
+                                    <span class="accordion__header--icon"></span>
+                                    <span class="accordion__header--text">Accordion Header Three</span>
+                                    <span class="accordion__header--indicator"></span>
+                                </div>
+                                <div id="header-shadow_collapseThree" class="collapse accordion__body" data-parent="#accordion-ten">
+                                    <div class="accordion__body--text">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Layout</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Blank</a></li>
-                        </ol>
-                    </div>
-                </div>
-                <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Card Title</h4>
+                                <h4 class="card-title">Graph data </h4>
+                                <select class="form-select" aria-label="Disabled select example" disabled>
+                                    <option selected>Open this select menu</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
                             </div>
                             <div class="card-body">
-                                Card Body
+                                <div id="viz"></div>
                             </div>
-                            <div class="card-footer">
+                            {% comment %} <div class="card-footer">
                                 Card footer
-                            </div>
+                            </div> {% endcomment %}
                         </div>
                     </div>
-                </div>
             </div>
         </div>
         <!--**********************************
