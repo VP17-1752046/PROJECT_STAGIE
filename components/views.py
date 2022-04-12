@@ -35,6 +35,8 @@ def signup(request):
 
     return render(request, "authentication/signup.html")
 
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
 def signin(request):
 
     if request.method == 'POST':
